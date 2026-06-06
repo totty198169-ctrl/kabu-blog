@@ -1,0 +1,38 @@
+---
+const year = new Date().getFullYear();
+import { SITE_TITLE } from '../consts';
+---
+
+<footer class="site-footer">
+  <div class="inner">
+    <p class="disclaimer">
+      <strong>【免責事項】</strong>当ブログの内容は筆者個人の見解・記録であり、特定の銘柄の売買を推奨するものではありません。情報の正確性・完全性を保証するものではなく、
+      <strong>投資は自己責任で</strong>行ってください。本サイトの情報に基づく損害について、筆者は一切の責任を負いません。
+    </p>
+    <p class="copyright">© {year} {SITE_TITLE}</p>
+  </div>
+</footer>
+
+<style>
+  .site-footer {
+    flex-shrink: 0;
+    border-top: 1px solid var(--color-border);
+    background: var(--color-surface);
+  }
+  .inner {
+    max-width: var(--max-width);
+    margin: 0 auto;
+    padding: 1.5rem 1.25rem 2rem;
+  }
+  .disclaimer {
+    font-size: 0.8rem;
+    line-height: 1.7;
+    color: var(--color-muted);
+    margin: 0 0 0.75rem;
+  }
+  .copyright {
+    font-size: 0.8rem;
+    color: var(--color-muted);
+    margin: 0;
+  }
+</style>

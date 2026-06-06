@@ -1,0 +1,139 @@
+:root {
+  --color-bg: #ffffff;
+  --color-surface: #f7f8fa;
+  --color-text: #1f2733;
+  --color-muted: #5b6675;
+  --color-border: #e4e8ee;
+  --color-accent: #0a6b4f;
+  --color-accent-soft: #e3f3ed;
+  --color-up: #c0392b;   /* 日本式: 上昇=赤 */
+  --color-down: #1f72c4; /* 日本式: 下落=青 */
+  --max-width: 760px;
+  --radius: 10px;
+  --font-sans: -apple-system, BlinkMacSystemFont, 'Hiragino Kaku Gothic ProN',
+    'Hiragino Sans', 'Noto Sans JP', Meiryo, sans-serif;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --color-bg: #15191f;
+    --color-surface: #1d232b;
+    --color-text: #e6eaf0;
+    --color-muted: #9aa6b4;
+    --color-border: #2c343e;
+    --color-accent: #4cc79e;
+    --color-accent-soft: #1d2f2a;
+  }
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  font-family: var(--font-sans);
+  font-size: 16px;
+  line-height: 1.8;
+  -webkit-text-size-adjust: 100%;
+}
+
+body {
+  margin: 0;
+  background: var(--color-bg);
+  color: var(--color-text);
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+a {
+  color: var(--color-accent);
+  text-decoration: none;
+}
+a:hover {
+  text-decoration: underline;
+}
+
+img {
+  max-width: 100%;
+  height: auto;
+}
+
+main {
+  flex: 1 0 auto;
+  width: 100%;
+  max-width: var(--max-width);
+  margin: 0 auto;
+  padding: 2rem 1.25rem 3rem;
+}
+
+h1,
+h2,
+h3,
+h4 {
+  line-height: 1.4;
+  font-weight: 700;
+}
+
+h1 {
+  font-size: 1.9rem;
+  margin: 0 0 0.6rem;
+}
+
+hr {
+  border: none;
+  border-top: 1px solid var(--color-border);
+  margin: 2rem 0;
+}
+
+code {
+  background: var(--color-surface);
+  padding: 0.15em 0.4em;
+  border-radius: 5px;
+  font-size: 0.9em;
+}
+
+pre {
+  background: var(--color-surface);
+  padding: 1rem;
+  border-radius: var(--radius);
+  overflow-x: auto;
+}
+pre code {
+  background: none;
+  padding: 0;
+}
+
+blockquote {
+  margin: 1.2rem 0;
+  padding: 0.4rem 1.1rem;
+  border-left: 4px solid var(--color-accent);
+  color: var(--color-muted);
+  background: var(--color-surface);
+  border-radius: 0 var(--radius) var(--radius) 0;
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+  margin: 1.2rem 0;
+  font-size: 0.95rem;
+}
+th,
+td {
+  border: 1px solid var(--color-border);
+  padding: 0.5rem 0.7rem;
+  text-align: left;
+}
+th {
+  background: var(--color-surface);
+}
+
+.visually-hidden {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+  clip: rect(0 0 0 0);
+  white-space: nowrap;
+}

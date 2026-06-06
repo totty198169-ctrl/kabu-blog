@@ -1,0 +1,122 @@
+---
+import { SITE_TITLE, CATEGORY_SLUGS } from '../consts';
+import { CATEGORIES } from '../content.config';
+---
+
+<header class="site-header">
+  <div class="inner">
+    <a class="brand" href="/">{SITE_TITLE}</a>
+    <button
+      class="nav-toggle"
+      aria-expanded="false"
+      aria-controls="site-nav"
+      aria-label="メニューを開閉"
+    >
+      <span></span><span></span><span></span>
+    </button>
+    <nav id="site-nav" class="site-nav" aria-label="カテゴリ">
+      <ul>
+        {
+          CATEGORIES.map((cat) => (
+            <li>
+              <a href={`/category/${CATEGORY_SLUGS[cat]}/`}>{cat}</a>
+            </li>
+          ))
+        }
+        <li><a href="/about/">プロフィール</a></li>
+      </ul>
+    </nav>
+  </div>
+</header>
+
+<style>
+  .site-header {
+    border-bottom: 1px solid var(--color-border);
+    background: var(--color-bg);
+    position: sticky;
+    top: 0;
+    z-index: 10;
+  }
+  .inner {
+    max-width: var(--max-width);
+    margin: 0 auto;
+    padding: 0.75rem 1.25rem;
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 0.5rem 1rem;
+  }
+  .brand {
+    font-weight: 800;
+    font-size: 1.15rem;
+    color: var(--color-text);
+    margin-right: auto;
+  }
+  .brand:hover {
+    text-decoration: none;
+    color: var(--color-accent);
+  }
+  .site-nav ul {
+    list-style: none;
+    display: flex;
+    gap: 0.25rem 1rem;
+    margin: 0;
+    padding: 0;
+    flex-wrap: wrap;
+  }
+  .site-nav a {
+    color: var(--color-muted);
+    font-size: 0.9rem;
+    font-weight: 600;
+  }
+  .site-nav a:hover {
+    color: var(--color-accent);
+    text-decoration: none;
+  }
+  .nav-toggle {
+    display: none;
+    flex-direction: column;
+    justify-content: center;
+    gap: 4px;
+    width: 40px;
+    height: 36px;
+    background: none;
+    border: 1px solid var(--color-border);
+    border-radius: 8px;
+    cursor: pointer;
+  }
+  .nav-toggle span {
+    display: block;
+    height: 2px;
+    width: 18px;
+    margin: 0 auto;
+    background: var(--color-text);
+    transition: transform 0.2s ease;
+  }
+
+  @media (max-width: 640px) {
+    .nav-toggle {
+      display: flex;
+    }
+    .site-nav {
+      flex-basis: 100%;
+      display: none;
+    }
+    .site-nav.open {
+      display: block;
+    }
+    .site-nav ul {
+      flex-direction: column;
+      padding: 0.5rem 0 0.25rem;
+    }
+  }
+</style>
+
+<script>
+  const toggle = document.querySelector('.nav-toggle');
+  const nav = document.getElementById('site-nav');
+  toggle?.addEventListener('click', () => {
+    const open = nav?.classList.toggle('open');
+    toggle.setAttribute('aria-expanded', open ? 'true' : 'false');
+  });
+</script>

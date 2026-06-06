@@ -1,0 +1,112 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+
+const description =
+  '高配当と投資信託で老後を楽しく過ごすために奮闘中の40代・ばるでらまのプロフィール。';
+---
+
+<BaseLayout title="プロフィール" description={description}>
+  <section class="profile">
+    <p class="crumb"><a href="/">トップ</a> / プロフィール</p>
+
+    <h1>こんにちは、ばるでらまです</h1>
+
+    <p class="lead">
+      高配当と投資信託で<strong>老後に必要な資金を確保</strong>しつつ、<strong
+        >自由な働き方</strong
+      >を手に入れることを目標に奮闘している40代です。投資に関する考え方や気付きなどを、ゆる〜く発信していこうと思います。
+    </p>
+
+    <h2>ざっくり自己紹介</h2>
+    <ul class="facts">
+      <li><span>名前</span>ばるでらま</li>
+      <li><span>世代</span>40代</li>
+      <li><span>投資歴</span>2021年〜(NISAで積立スタート)</li>
+      <li><span>スタイル</span>高配当株 × 投資信託 × トレード</li>
+      <li><span>目標</span>高配当で基礎生活費を確保して自由になる</li>
+    </ul>
+
+    <h2>これまでの歩み</h2>
+    <p>
+      投資を始めたのは2021年。まずは<strong>NISAでコツコツ積立</strong
+      >をしながら、配当をもらえる<strong>高配当株を少しずつ買い集めて</strong
+      >きました。
+    </p>
+    <p>
+      去年からは<strong>本格的にトレード</strong
+      >にも挑戦中。積立・高配当でじっくり土台を作りつつ、トレードで資金そのものを増やしていく――この二本立てで前に進んでいます。
+    </p>
+
+    <h2>このブログでやりたいこと</h2>
+    <p>
+      ねらいはシンプルで、<strong>高配当で毎月の基礎生活費を確保し、働き方を自由にする</strong
+      >こと。そのための試行錯誤を、成功も失敗もまとめて記録していきます。同じように「投資で生活をラクにしたい」と思っている人の、ちょっとした参考になればうれしいです。
+    </p>
+
+    <div class="note">
+      <p>
+        ※当ブログの内容はすべて筆者個人の見解・記録であり、特定銘柄の売買を推奨するものではありません。<strong
+          >投資は自己責任で</strong
+        >お願いします。
+      </p>
+    </div>
+
+    <p class="back"><a href="/">← 記事一覧へ戻る</a></p>
+  </section>
+</BaseLayout>
+
+<style>
+  .crumb {
+    font-size: 0.8rem;
+    color: var(--color-muted);
+    margin: 0 0 0.5rem;
+  }
+  .lead {
+    font-size: 1.05rem;
+    color: var(--color-text);
+    margin: 0.5rem 0 2rem;
+  }
+  .profile h2 {
+    font-size: 1.25rem;
+    margin-top: 2.2rem;
+  }
+  .facts {
+    list-style: none;
+    padding: 0;
+    margin: 1rem 0;
+    border: 1px solid var(--color-border);
+    border-radius: var(--radius);
+    overflow: hidden;
+  }
+  .facts li {
+    display: flex;
+    gap: 1rem;
+    padding: 0.7rem 1rem;
+    border-bottom: 1px solid var(--color-border);
+  }
+  .facts li:last-child {
+    border-bottom: none;
+  }
+  .facts span {
+    flex: 0 0 5.5em;
+    font-weight: 700;
+    color: var(--color-accent);
+  }
+  .note {
+    margin-top: 2.2rem;
+    padding: 0.4rem 1.1rem;
+    background: var(--color-surface);
+    border-left: 4px solid var(--color-accent);
+    border-radius: 0 var(--radius) var(--radius) 0;
+  }
+  .note p {
+    font-size: 0.85rem;
+    color: var(--color-muted);
+  }
+  .back {
+    margin-top: 3rem;
+    padding-top: 1.25rem;
+    border-top: 1px solid var(--color-border);
+    font-size: 0.95rem;
+  }
+</style>

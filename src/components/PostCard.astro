@@ -1,0 +1,62 @@
+---
+import FormattedDate from './FormattedDate.astro';
+import CategoryBadge from './CategoryBadge.astro';
+
+interface Props {
+  id: string;
+  title: string;
+  description?: string;
+  pubDate: Date;
+  category: string;
+  ticker?: string;
+}
+
+const { id, title, description, pubDate, category, ticker } = Astro.props;
+---
+
+<article class="card">
+  <div class="meta">
+    <CategoryBadge category={category} />
+    <FormattedDate date={pubDate} />
+  </div>
+  <h2 class="title">
+    <a href={`/blog/${id}/`}>{title}</a>
+  </h2>
+  {ticker && <p class="ticker">銘柄コード: {ticker}</p>}
+  {description && <p class="excerpt">{description}</p>}
+</article>
+
+<style>
+  .card {
+    padding: 1.25rem 0;
+    border-bottom: 1px solid var(--color-border);
+  }
+  .meta {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    font-size: 0.8rem;
+    color: var(--color-muted);
+    margin-bottom: 0.5rem;
+  }
+  .title {
+    font-size: 1.25rem;
+    margin: 0 0 0.35rem;
+  }
+  .title a {
+    color: var(--color-text);
+  }
+  .title a:hover {
+    color: var(--color-accent);
+  }
+  .ticker {
+    font-size: 0.8rem;
+    color: var(--color-muted);
+    margin: 0 0 0.35rem;
+  }
+  .excerpt {
+    margin: 0;
+    color: var(--color-muted);
+    font-size: 0.95rem;
+  }
+</style>
