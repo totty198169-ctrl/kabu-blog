@@ -21,7 +21,7 @@
 
 - Node.js はローカル導入。コマンド実行前に `export PATH="$HOME/.local/node/bin:$PATH"` が必要。
 - git のコミットは `-c user.name="balderama" -c user.email="balderama@users.noreply.github.com"` を付与する(グローバル設定なし)。
-- GitHub リポジトリ: `totty198169-ctrl/kabu-blog`(HTTPS・認証は Keychain 済み)。
+- GitHub リポジトリ: `totty198169-ctrl/kabu-blog`(SSH 接続・鍵は `~/.ssh/id_ed25519`、2026-07-04 設定済み。認証エラー時は GitHub 側の SSH キー登録を確認)。
 - 本番 URL: https://kabu-blog.pages.dev(Cloudflare Pages、`main` への push で自動デプロイ、`NODE_VERSION=22`)。
 
 ## 記事の保存場所と命名規則
