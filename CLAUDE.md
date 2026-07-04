@@ -2,6 +2,28 @@
 
 このリポジトリは Astro 製の株式投資ブログです。記事を作成・編集する際は、本ファイルの規約に従ってください。
 
+## 運用方針(重要)
+
+ブログ主は投資ブロガーであり、プログラミングやターミナル操作には不慣れ。**記事の作成・修正・公開はすべて Claude が代行する**のが基本運用。
+
+- 依頼は「○○の記事を書いて」「△△を直して」のような口頭ベースで来る。専門用語を使わずに進める。
+- 技術的な選択肢を提示するときは、必ず「どうなるか」を平易な日本語で説明する。
+
+## 記事執筆依頼を受けたときの標準ワークフロー
+
+1. **最新データの確認** — 株価・指標は必ず Web で当日データを調べる。取れなかった数値は捏造せず `【要確認: 〜】` プレースホルダを残し、本文にその旨を書く。数値には必ず時点(日付)を添える。
+2. **ファイル作成** — `src/content/blog/_template.md` の構成に従い、`YYYY-MM-DD-<slug>.md` で新規作成する(`_template.md` 自体は上書きしない)。
+3. **ビルド確認** — `npm run build` が通ることを確認する。
+4. **プレビュー提示** — `npm run dev` を起動し、ローカル URL(通常 `http://localhost:4321/`)をブログ主に伝えて確認してもらう。
+5. **公開は承諾を得てから** — ブログ主の OK が出るまで `git push` しない。OK 後に `git add` → `git commit` → `git push` すると Cloudflare Pages が自動デプロイし、数分で https://kabu-blog.pages.dev に反映される。
+
+### 環境メモ
+
+- Node.js はローカル導入。コマンド実行前に `export PATH="$HOME/.local/node/bin:$PATH"` が必要。
+- git のコミットは `-c user.name="balderama" -c user.email="balderama@users.noreply.github.com"` を付与する(グローバル設定なし)。
+- GitHub リポジトリ: `totty198169-ctrl/kabu-blog`(HTTPS・認証は Keychain 済み)。
+- 本番 URL: https://kabu-blog.pages.dev(Cloudflare Pages、`main` への push で自動デプロイ、`NODE_VERSION=22`)。
+
 ## 記事の保存場所と命名規則
 
 - 保存先: `src/content/blog/`(`.md` または `.mdx`)
