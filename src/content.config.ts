@@ -7,6 +7,7 @@ export const CATEGORIES = [
   '高配当',
   'デイトレ',
   '銘柄分析',
+  '投資の考え方',
 ] as const;
 
 export type Category = (typeof CATEGORIES)[number];
